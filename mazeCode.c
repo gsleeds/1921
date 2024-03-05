@@ -24,36 +24,50 @@ void displayMaze(const Maze* maze);
 // Function to handle player movement
 void movePlayer(Maze* maze, char direction);
 
+// Function to validate player move
+int validateMove(const Maze* maze, int newRow, int newCol);
+
 // Function to check if the player has reached the exit
 int hasReachedExit(const Maze* maze);
+
+// Function to validate the maze
+int validateMaze(const Maze* maze);
 
 // Function to free memory allocated for the maze
 void freeMaze(Maze* maze);
 
 // Main function
 int main(int argc, char* argv[]) {
-    if (argc != 2) {
-        fprintf(stderr, "Usage: %s <maze_file>\n", argv[0]);
+    // Initialize the maze
+    Maze* maze = initializeMaze(argv[1]);
+
+    // Check if maze initialization was successful
+    if (maze == NULL) {
+        fprintf(stderr, "Error loading maze from file.\n");
         return EXIT_FAILURE;
     }
 
-    // Load maze from the command line argument
-    Maze* maze = initializeMaze(argv[1]);
-
-    if (maze == NULL) {
-        fprintf(stderr, "Error loading maze from file.\n");
+    // Validate the maze
+    if (!validateMaze(maze)) {
+        fprintf(stderr, "Invalid maze.\n");
+        freeMaze(maze);
         return EXIT_FAILURE;
     }
 
     // Main game loop
     char userInput;
     do {
+        // Display the maze
         displayMaze(maze);
+
+        // Get user input
         printf("Enter your move (W/A/S/D/M): ");
         scanf(" %c", &userInput);
 
+        // Handle player movement
         movePlayer(maze, userInput);
 
+        // Check if the player has reached the exit
         if (hasReachedExit(maze)) {
             printf("Congratulations! You've reached the exit.\n");
             break;
