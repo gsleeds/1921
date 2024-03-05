@@ -6,7 +6,7 @@
 #define MAX_WIDTH 100
 #define MIN_WIDTH 5
 
-// Struct definition for a maze
+// Struct def
 typedef struct {
     char** cells;
     int height;
@@ -15,33 +15,33 @@ typedef struct {
     int playerCol;
 } Maze;
 
-// Function to initialize the maze structure
+// Func to initialize the maze structure
 Maze* initializeMaze(char* filename);
 
-// Function to display the maze
+// Func to display the maze
 void displayMaze(const Maze* maze);
 
-// Function to handle player movement
+// Func to handle player movement
 void movePlayer(Maze* maze, char direction);
 
-// Function to validate player move
+// Func to validate player move
 int validateMove(const Maze* maze, int newRow, int newCol);
 
-// Function to check if the player has reached the exit
+// Func to check if the player has reached the exit
 int hasReachedExit(const Maze* maze);
 
-// Function to validate the maze
+// Func to validate the maze
 int validateMaze(const Maze* maze);
 
-// Function to free memory allocated for the maze
+// Func to free memory allocated for the maze
 void freeMaze(Maze* maze);
 
-// Main function
+// Main Func
 int main(int argc, char* argv[]) {
-    // Initialize the maze
+    // Init maze
     Maze* maze = initializeMaze(argv[1]);
 
-    // Check if maze initialization was successful
+    // Check if maze init was successful
     if (maze == NULL) {
         fprintf(stderr, "Error loading maze from file.\n");
         return EXIT_FAILURE;
