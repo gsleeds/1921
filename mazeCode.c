@@ -41,41 +41,26 @@ int main(int argc, char* argv[]) {
     // Init maze
     Maze* maze = initializeMaze(argv[1]);
 
-    // Check if maze init was successful
     if (maze == NULL) {
-        fprintf(stderr, "Error loading maze from file.\n");
-        return EXIT_FAILURE;
+        // Check if maze init was successful
     }
 
-    // Validate the maze
     if (!validateMaze(maze)) {
-        fprintf(stderr, "Invalid maze.\n");
-        freeMaze(maze);
-        return EXIT_FAILURE;
+        // Validate maze
     }
 
     // Main game loop
     char userInput;
     do {
         // Display the maze
-        displayMaze(maze);
-
         // Get user input
-        printf("Enter your move (W/A/S/D/M): ");
-        scanf(" %c", &userInput);
-
         // Handle player movement
-        movePlayer(maze, userInput);
-
-        // Check if the player has reached the exit
         if (hasReachedExit(maze)) {
-            printf("Congratulations! You've reached the exit.\n");
-            break;
+            // Check if the player has reached the exit
         }
-    } while (userInput != 'Q' && userInput != 'q'); // Assume 'Q' or 'q' to quit
+    } // Assume 'Q' or 'q' to quit
 
     // Free allocated memory
-    freeMaze(maze);
 
     return EXIT_SUCCESS;
 }

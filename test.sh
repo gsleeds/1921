@@ -86,14 +86,12 @@ check_result "Invalid key 'D' handled"
 ./mazeCode valid_maze_small.txt < move_to_exit.txt > tmp
 check_result "Moving onto the exit handled"
 
-### do VVV
-
 # Test 'M' and 'm' displays the map
-./mazeCode display_map.txt > tmp
+./mazeCode valid_maze.txt < map_key.txt > tmp
 check_result "Display map handled"
 
 # Test the displayed map is correct
-./mazeCode correct_displayed_map.txt > tmp
+./mazeCode valid_maze.txt > tmp
 # Compare the output with the expected output using a tool like 'diff'
 if diff -q tmp expected_output.txt; then
     echo "PASS: Displayed map is correct"
