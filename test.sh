@@ -67,19 +67,19 @@ check_result "Move through edge of map handled"
 
 # Test key presses (WASD) actually moving the player
 # Test 'W' key
-echo "W" | ./mazeCode valid_maze.txt < w_key.txt > tmp 2>&1
+./mazeCode valid_maze.txt < w_key.txt > tmp 2>&1
 check_result "Invalid key 'W' handled"
 
 # Test 'A' key
-echo "A" | ./mazeCode valid_maze.txt < a_key.txt > tmp 2>&1
+./mazeCode valid_maze.txt < a_key.txt > tmp 2>&1
 check_result "Invalid key 'A' handled"
 
 # Test 'S' key
-echo "S" | ./mazeCode valid_maze.txt < s_key.txt > tmp 2>&1
+./mazeCode valid_maze.txt < s_key.txt > tmp 2>&1
 check_result "Invalid key 'S' handled"
 
 # Test 'D' key
-echo "D" | ./mazeCode valid_maze.txt < d_key.txt > tmp 2>&1
+./mazeCode valid_maze.txt < d_key.txt > tmp 2>&1
 check_result "Invalid key 'D' handled"
 
 # Test moving onto the endpoint

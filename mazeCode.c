@@ -33,9 +33,6 @@ int hasReachedExit(const Maze* maze);
 // Func to validate the maze
 int validateMaze(const Maze* maze);
 
-// Func to free memory allocated for the maze
-void freeMaze(Maze* maze);
-
 // Main Func
 int main(int argc, char* argv[]) {
     // Init maze
@@ -52,15 +49,13 @@ int main(int argc, char* argv[]) {
     // Main game loop
     char userInput;
     do {
-        // Display the maze
         // Get user input
+        // Display the maze
         // Handle player movement
         if (hasReachedExit(maze)) {
             // Check if the player has reached the exit
         }
-    } // Assume 'Q' or 'q' to quit
+    } // While condition
+        //Assume 'Q' or 'q' to quit
 
-    // Free allocated memory
-
-    return EXIT_SUCCESS;
 }
